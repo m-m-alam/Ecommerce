@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ProductType>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br /><br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Product Type List</h2>
+    </div>
+    <div class="col-6">
+        <a asp-action="Create" class="btn btn-info">New Product Type</a>
+    </div>
+</div>
+<br />
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>@Html.DisplayNameFor(c=>c.Name)</th>
+            <th>Acion</th>
+        </tr>
+        @foreach(var data in Model)
+        {
+            <tr>
+                <td> @data.Name</td>
+                <td><partial name="~/Views/Shared/_ButtonPartial.cshtml" model="@data.Id" /></td>
+            </tr>
+        }
+    </table>
+</div>
